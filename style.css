@@ -1,176 +1,185 @@
-    <style>
-        :root {
-            /* Define CSS variables for the themes */
-            --bg-light: #F5F5DC; /* Creamy White */
-            --text-light: #0D1B2A; /* Deep Navy */
-            --accent-light: #B8860B; /* Dark Goldenrod */
-            --card-light: #FFFFFF;
-            --gradient-start-light: #F5F5DC;
-            --gradient-end-light: #E0E1DD;
-            
-            --bg-dark: #0D1B2A; /* Deep Navy */
-            --text-dark: #E0E1DD; /* Off-White */
-            --accent-dark: #D4AF37; /* Gold */
-            --card-dark: #1B263B; /* Darker Navy */
-            --gradient-start-dark: #0D1B2A;
-            --gradient-end-dark: #1B263B;
-        }
+:root {
+    /* Define CSS variables for the themes */
+    --bg-light: #F5F5DC; /* Creamy White */
+    --text-light: #0D1B2A; /* Deep Navy */
+    --accent-light: #B8860B; /* Dark Goldenrod */
+    --card-light: #FFFFFF;
+    --gradient-start-light: #F5F5DC;
+    --gradient-end-light: #E0E1DD;
+    
+    --bg-dark: #0D1B2A; /* Deep Navy */
+    --text-dark: #FFFFFF; /* Pure White for Dark Mode Text */
+    --accent-dark: #D4AF37; /* Gold */
+    --card-dark: #1B263B; /* Darker Navy */
+    --gradient-start-dark: #0D1B2A;
+    --gradient-end-dark: #1B263B;
+}
 
-        body {
-            font-family: 'Lora', serif;
-            transition: background-color 0.5s ease, color 0.5s ease;
-            background-color: var(--bg-light);
-            color: var(--text-light);
-        }
+body {
+    font-family: 'Cormorant Garamond', serif;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
 
-        .dark body {
-            background-color: var(--bg-dark);
-            color: var(--text-dark);
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-        }
+.dark body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
 
-        /* Animated Gradient Background */
-        .gradient-bg {
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background: linear-gradient(-45deg, var(--gradient-start-light), var(--gradient-end-light));
-        }
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+}
 
-        .dark .gradient-bg {
-            background: linear-gradient(-45deg, var(--gradient-start-dark), var(--gradient-end-dark));
-        }
+/* --- Force Text Colors --- */
+.dark h1, .dark #timeline h2, .dark #projects h2 {
+    color: var(--text-dark);
+}
+#contact h2 .text-content {
+     color: var(--text-light) !important;
+}
+.dark #about p, .dark #timeline h3, .dark #timeline li {
+    color: var(--text-dark) !important;
+}
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
 
-        /* --- General Animation Classes --- */
-        .fade-in-up, .slide-in-left, .slide-in-right {
-            opacity: 0;
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in-up { transform: translateY(30px); }
-        .slide-in-left { transform: translateX(-30px); }
-        .slide-in-right { transform: translateX(30px); }
-        
-        .visible {
-            opacity: 1;
-            transform: translateY(0) translateX(0);
-        }
+/* Animated Gradient Background */
+.gradient-bg {
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(-45deg, var(--gradient-start-light), var(--gradient-end-light));
+}
 
-        /* --- Header & Nav --- */
-        .nav-link::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: var(--accent-dark);
-            transition: width .3s;
-        }
-        .dark .nav-link:hover::after, .nav-link:hover::after {
-            background: var(--accent-dark);
-        }
+.dark .gradient-bg {
+    background: linear-gradient(-45deg, var(--gradient-start-dark), var(--gradient-end-dark));
+}
 
-        /* --- Animated Heading Reveal --- */
-        .reveal-text {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-        }
-        .reveal-text .text-content {
-            transform: translateY(110%);
-            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-        .reveal-text.visible .text-content {
-            transform: translateY(0);
-        }
-        .reveal-text::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent-light); /* Darker gold for light mode */
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-            transition-delay: 0.4s;
-        }
-        .dark .reveal-text::after {
-            background: var(--accent-dark); /* Brighter gold for dark mode */
-        }
-        .reveal-text.visible::after {
-            transform: scaleX(1);
-        }
-        
-        /* --- Project Card 3D Flip --- */
-        .flip-card {
-            background-color: transparent;
-            width: 100%;
-            height: 450px;
-            perspective: 1000px;
-        }
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-        }
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden; /* Safari */
-            backface-visibility: hidden;
-            border-radius: 0.5rem; /* 8px */
-            overflow: hidden;
-        }
-        .flip-card-back {
-            transform: rotateY(180deg);
-        }
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-        /* --- Back to Top Button --- */
-        #back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-            animation: float-aggressive 2s ease-in-out infinite;
-        }
-        #back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        @keyframes float-aggressive {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        /* --- Footer Social Icon Hover --- */
-        .social-icon {
-            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
-        }
-        .social-icon:hover {
-            transform: scale(1.2);
-            color: var(--accent-dark);
-        }
-    </style>
+/* --- General Animation Classes --- */
+.fade-in-up, .slide-in-left, .slide-in-right {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-up { transform: translateY(30px); }
+.slide-in-left { transform: translateX(-30px); }
+.slide-in-right { transform: translateX(30px); }
+
+.visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+}
+
+/* --- Header & Nav --- */
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--accent-dark);
+    transition: width .3s;
+}
+.dark .nav-link:hover::after, .nav-link:hover::after {
+    background: var(--accent-dark);
+}
+
+/* --- Animated Heading Reveal --- */
+.reveal-text {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+.reveal-text .text-content {
+    transform: translateY(110%);
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.reveal-text.visible .text-content {
+    transform: translateY(0);
+}
+.reveal-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-light); /* Darker gold for light mode */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    transition-delay: 0.4s;
+}
+.dark .reveal-text::after {
+    background: var(--accent-dark); /* Brighter gold for dark mode */
+}
+.reveal-text.visible::after {
+    transform: scaleX(1);
+}
+
+/* --- Project Card 3D Flip --- */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 450px;
+    perspective: 1000px;
+}
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    border-radius: 0.5rem; /* 8px */
+    overflow: hidden;
+}
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+/* --- Back to Top Button --- */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    animation: float-aggressive 2s ease-in-out infinite;
+}
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+@keyframes float-aggressive {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- Footer Social Icon Hover --- */
+.social-icon {
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.social-icon:hover {
+    transform: scale(1.2);
+}
