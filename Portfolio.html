@@ -5,183 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Aung Oke Oo - 2nd Year Law Student </title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            /* Define CSS variables for the themes */
-            --bg-light: #F5F5DC; /* Creamy White */
-            --text-light: #0D1B2A; /* Deep Navy */
-            --accent-light: #B8860B; /* Dark Goldenrod */
-            --card-light: #FFFFFF;
-            --gradient-start-light: #F5F5DC;
-            --gradient-end-light: #E0E1DD;
-            
-            --bg-dark: #0D1B2A; /* Deep Navy */
-            --text-dark: #E0E1DD; /* Off-White */
-            --accent-dark: #D4AF37; /* Gold */
-            --card-dark: #1B263B; /* Darker Navy */
-            --gradient-start-dark: #0D1B2A;
-            --gradient-end-dark: #1B263B;
-        }
-
-        body {
-            font-family: 'Lora', serif;
-            transition: background-color 0.5s ease, color 0.5s ease;
-            background-color: var(--bg-light);
-            color: var(--text-light);
-        }
-
-        .dark body {
-            background-color: var(--bg-dark);
-            color: var(--text-dark);
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-        }
-
-        /* Animated Gradient Background */
-        .gradient-bg {
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background: linear-gradient(-45deg, var(--gradient-start-light), var(--gradient-end-light));
-        }
-
-        .dark .gradient-bg {
-            background: linear-gradient(-45deg, var(--gradient-start-dark), var(--gradient-end-dark));
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* --- General Animation Classes --- */
-        .fade-in-up, .slide-in-left, .slide-in-right {
-            opacity: 0;
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in-up { transform: translateY(30px); }
-        .slide-in-left { transform: translateX(-30px); }
-        .slide-in-right { transform: translateX(30px); }
-        
-        .visible {
-            opacity: 1;
-            transform: translateY(0) translateX(0);
-        }
-
-        /* --- Header & Nav --- */
-        .nav-link::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: var(--accent-dark);
-            transition: width .3s;
-        }
-        .dark .nav-link:hover::after, .nav-link:hover::after {
-            background: var(--accent-dark);
-        }
-
-        /* --- Animated Heading Reveal --- */
-        .reveal-text {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-        }
-        .reveal-text .text-content {
-            transform: translateY(110%);
-            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-        .reveal-text.visible .text-content {
-            transform: translateY(0);
-        }
-        .reveal-text::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent-light); /* Darker gold for light mode */
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-            transition-delay: 0.4s;
-        }
-        .dark .reveal-text::after {
-            background: var(--accent-dark); /* Brighter gold for dark mode */
-        }
-        .reveal-text.visible::after {
-            transform: scaleX(1);
-        }
-        
-        /* --- Project Card 3D Flip --- */
-        .flip-card {
-            background-color: transparent;
-            width: 100%;
-            height: 450px;
-            perspective: 1000px;
-        }
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-        }
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden; /* Safari */
-            backface-visibility: hidden;
-            border-radius: 0.5rem; /* 8px */
-            overflow: hidden;
-        }
-        .flip-card-back {
-            transform: rotateY(180deg);
-        }
-
-        /* --- Back to Top Button --- */
-        #back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-            animation: float-aggressive 2s ease-in-out infinite;
-        }
-        #back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        @keyframes float-aggressive {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        /* --- Footer Social Icon Hover --- */
-        .social-icon {
-            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
-        }
-        .social-icon:hover {
-            transform: scale(1.2);
-            color: var(--accent-dark);
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
@@ -193,13 +20,13 @@
     <header class="bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold text-navy-900 dark:text-white">JD.</div>
+                <div class="text-2xl font-bold text-navy-900 dark:text-white"> AOO </div>
                 <div class="flex items-center space-x-4">
                     <nav class="hidden md:flex space-x-8">
-                        <a href="#about" class="nav-link text-gray-600 dark:text-gray-300 hover:text-gold-500 dark:hover:text-gold-400">About</a>
-                        <a href="#timeline" class="nav-link text-gray-600 dark:text-gray-300 hover:text-gold-500 dark:hover:text-gold-400">Experience</a>
-                        <a href="#projects" class="nav-link text-gray-600 dark:text-gray-300 hover:text-gold-500 dark:hover:text-gold-400">Projects</a>
-                        <a href="#contact" class="nav-link text-gray-600 dark:text-gray-300 hover:text-gold-500 dark:hover:text-gold-400">Contact</a>
+                        <a href="#about" class="nav-link text-gray-600 dark:text-white hover:text-gold-500 dark:hover:text-gold-400">About</a>
+                        <a href="#timeline" class="nav-link text-gray-600 dark:text-white hover:text-gold-500 dark:hover:text-gold-400">Experience</a>
+                        <a href="#projects" class="nav-link text-gray-600 dark:text-white hover:text-gold-500 dark:hover:text-gold-400">Projects</a>
+                        <a href="#contact" class="nav-link text-gray-600 dark:text-white hover:text-gold-500 dark:hover:text-gold-400">Contact</a>
                     </nav>
                     <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
@@ -221,7 +48,6 @@
             <a href="#projects" class="block py-2 px-6 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Projects</a>
             <a href="#contact" class="block py-2 px-6 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
         </div>
-        
     </header>
 
     <main class="container mx-auto px-6 pt-24 relative z-10">
@@ -230,8 +56,8 @@
         <section id="about" class="min-h-screen flex items-center">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div data-animation="fade-in-up">
-                    <h1 class="text-4xl md:text-6xl font-black text-navy-900 dark:text-white leading-tight"> Aung Oke Oo <br><span class="text-gold-600 dark:text-gold-400"> St. John's University School of Law </span></h1>
-                    <p class="mt-6 text-lg text-navy-800 dark:text-gray-400">
+                    <h1 class="text-4xl md:text-6xl font-black text-navy-900 leading-tight"> Aung Oke Oo <br><span class="text-gold-600 dark:text-gold-400"> St. John's University School of Law </span></h1>
+                    <p class="mt-6 text-lg text-navy-800 dark:text-white">
                         Juris Doctor Candidate who conducts rigorous due diligence and drafts clear, compliant transaction documents
                     </p>
                     <a href="#contact" class="mt-8 inline-block bg-gold-500 hover:bg-gold-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105">
@@ -239,63 +65,223 @@
                     </a>
                 </div>
                 <div data-animation="fade-in-up" data-animation-delay="200" class="flex justify-center">
-                    <img id="hero-image" src="https://placehold.co/400x400/0D1B2A/F5F5DC?text=JD" alt="Jane Doe Portrait" class="rounded-full shadow-2xl w-80 h-80 md:w-96 md:h-96 object-cover border-4 border-gold-400/50">
+                    <img id="hero-image" src="pics/PFP.jpeg" alt="Aung Oke Oo Portrait" class="rounded-full shadow-2xl w-80 h-80 md:w-96 md:h-96 object-cover border-4 border-gold-400/50">
                 </div>
             </div>
         </section>
 
-        
-        <!-- Timeline Section -->
+        <!-- My Journey Section -->
         <section id="timeline" class="py-20">
-            <div class="text-center mb-12">
-                <h2 data-animation="reveal-text" class="reveal-text text-3xl md:text-4xl font-bold text-navy-900 dark:text-white"><span class="text-content">My Journey</span></h2>
-            </div>
-            <div class="relative max-w-2xl mx-auto">
-                <div class="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-gray-300 dark:bg-gray-700"></div>
-                
-                <!-- Timeline Item 1 -->
-                <div class="mb-8 flex justify-between items-center w-full right-timeline">
-                    <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center justify-center order-1 bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full"><div class="timeline-node w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div></div>
-                    <div data-animation="slide-in-right" class="order-1 bg-white dark:bg-navy-800 rounded-lg shadow-lg w-5/12 px-6 py-4">
-                        <h3 class="font-bold text-navy-900 dark:text-white text-xl">Research Assistant</h3>
-                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">St. John’s University School of Law | May, 2025 - Present</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2"> Supported faculty-led research on legal education’s regulatory response to the 2008 financial crisis, focusing on the evolution of ABA Accreditation Standards.</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2"> Examined historical amendments, ABA Council materials, guidance memos, and public commentary to assess the development of standards on bar passage rates, experiential learning, data reporting, and learning outcomes.</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2"> Compiled and synthesized complex regulatory texts, legislative histories, press reports, and interpretive guidance to support scholarly analysis of key reforms in legal education transparency and accountability. </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Left Sticky Column -->
+                <div class="lg:sticky top-24 h-max">
+                    <h2 data-animation="fade-in-up" class="text-3xl md:text-4xl font-bold mb-6">My Journey</h2>
+                    <p data-animation="fade-in-up" data-animation-delay="100" class="text-gray-600 dark:text-white mb-6">
+                        A detail-oriented Juris Doctor candidate at St. John's University School of Law, I specialize in conducting rigorous due diligence and drafts clear, compliant transaction documents. My background in philosophy and software development has equipped me with a unique blend of analytical reasoning and technical problem-solving skills, which I apply to every legal challenge.
+                    </p>
+                     <div data-animation="fade-in-up" data-animation-delay="200">
+                        <a href="#" class="inline-block bg-gold-500 hover:bg-gold-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">
+                            View My Resume
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Timeline Item 2 -->
-                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
-                    <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center justify-center order-1 bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full"><div class="timeline-node w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div></div>
-                    <div data-animation="slide-in-left" class="order-1 bg-white dark:bg-navy-800 rounded-lg shadow-lg w-5/12 px-6 py-4">
-                        <h3 class="font-bold text-navy-900 dark:text-white text-xl">Web Developer</h3>
-                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">Innovate Co. | 2019 - 2022</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Developed and maintained responsive websites for various clients using WordPress, JavaScript, and PHP.</p>
+
+                <!-- Right Scrollable Column -->
+                <div class="relative">
+                    <div class="absolute left-0 h-full w-0.5 bg-gray-300 dark:bg-gray-700" style="left: 1rem;"></div>
+
+                    <!-- Timeline Item 12 -->
+                    <div class="mb-12 pl-12 relative" data-animation="slide-in-right">
+                        <div class="absolute left-0 top-1 z-20 flex items-center justify-center bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full" style="left: calc(1rem - 1rem);">
+                            <div class="w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div>
+                        </div>
+                        <h3 class="font-bold text-xl">Research Assistant</h3>
+                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">St. John’s University School of Law</p>
+                        <p class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-2">May, 2025 - Present</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-white">
+                            <li>• Supported faculty-led research on legal education’s regulatory response to the 2008 financial crisis, focusing on the evolution of ABA Accreditation Standards.</li>
+                            <li>• Examined historical amendments, ABA Council materials, guidance memos, and public commentary to assess the development of standards on bar passage rates, experiential learning, data reporting, and learning outcomes.</li>
+                            <li>• Compiled and synthesized complex regulatory texts, legislative histories, press reports, and interpretive guidance to support scholarly analysis of key reforms in legal education transparency and accountability.</li>
+                        </ul>
                     </div>
-                </div>
-                
-                <!-- Timeline Item 3 -->
-                <div class="mb-8 flex justify-between items-center w-full right-timeline">
-                    <div class="order-1 w-5/12"></div>
-                    <div class="z-20 flex items-center justify-center order-1 bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full"><div class="timeline-node w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div></div>
-                    <div data-animation="slide-in-right" class="order-1 bg-white dark:bg-navy-800 rounded-lg shadow-lg w-5/12 px-6 py-4">
-                        <h3 class="font-bold text-navy-900 dark:text-white text-xl">B.Sc. in Computer Science</h3>
-                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">University of Technology | 2015 - 2019</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Graduated with honors, focusing on software engineering and web development tracks.</p>
+
+                    <!-- Timeline Item 11 -->
+                    <div class="mb-12 pl-12 relative" data-animation="slide-in-right">
+                        <div class="absolute left-0 top-1 z-20 flex items-center justify-center bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full" style="left: calc(1rem - 1rem);">
+                            <div class="w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div>
+                        </div>
+                        <h3 class="font-bold text-xl">Legal Intern</h3>
+                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">The Law Office of Zarifah Dixon</p>
+                        <p class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-2">May, 2025 – Present</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-white">
+                            <li>• Supported real estate transactions and financing by reviewing titles, drafting deeds, and preparing legal documentation, and assisted in maintaining organized case files and conducting transaction-related research.</li>
+                            <li>• Facilitated the execution of ancillary documents and filed probate materials in Surrogate’s Courts across five New York counties, gaining exposure to court procedure and estate administration.</li>
+                            <li>• Managed communications with clients, lenders, and title companies to ensure accurate document intake, verifying compliance with deadlines, and supporting smooth transactional workflows.</li>
+                            <li>• Actively participated in real estate closings by preparing final documents, coordinating with all parties, and ensuring compliance with legal and financial requirements.</li>
+                            <li>• Collaborated with the attorney on estate planning matters and assisted in the preparation of wills and trusts.</li>
+                        </ul>
                     </div>
+                    
+                    <!-- Timeline Item 10 -->
+                    <div class="mb-12 pl-12 relative" data-animation="slide-in-right">
+                        <div class="absolute left-0 top-1 z-20 flex items-center justify-center bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full" style="left: calc(1rem - 1rem);">
+                            <div class="w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div>
+                        </div>
+                        <h3 class="font-bold text-xl">Spring Break Service Program</h3>
+                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">Brooklyn Defender Services</p>
+                        <p class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-2">March, 2025 – May, 2025</p>
+                         <ul class="space-y-2 text-sm text-gray-600 dark:text-white">
+                            <li>• Committed 20+ hours of pro bono work to client intake meetings and review the court documents.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Timeline Item 9 -->
+                    <div class="mb-12 pl-12 relative" data-animation="slide-in-right">
+                        <div class="absolute left-0 top-1 z-20 flex items-center justify-center bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full" style="left: calc(1rem - 1rem);">
+                            <div class="w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div>
+                        </div>
+                        <h3 class="font-bold text-xl">Juris Doctor</h3>
+                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">St. John’s University School of Law</p>
+                        <p class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-2">May, 2024 - Present</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-white">
+                            <li>• Recipient, Alumni Scholarship</li>
+                            <li>• Recipient, DC Conference Travel Award</li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 8 -->
+                    <div class="mb-12 pl-12 relative" data-animation="slide-in-right">
+                        <div class="absolute left-0 top-1 z-20 flex items-center justify-center bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full" style="left: calc(1rem - 1rem);">
+                            <div class="w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div>
+                        </div>
+                        <h3 class="font-bold text-xl">N.Y. State Judicial Institute Legal Education Opportunity Fellow</h3>
+                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">N.Y. State Unified Court System</p>
+                        <p class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-2">May, 2024 – July, 2024</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-white">
+                            <li>• Completed a selective program providing underrepresented students with essential academic skills.</li>
+                            <li>• Developed foundational skills in legal research, writing, and oral advocacy.</li>
+                            <li>• Attended court sessions and engaged with judiciary members and legal experts for real-world insights.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 7 -->
+                    <div class="mb-12 pl-12 relative" data-animation="slide-in-right">
+                        <div class="absolute left-0 top-1 z-20 flex items-center justify-center bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full" style="left: calc(1rem - 1rem);">
+                            <div class="w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div>
+                        </div>
+                        <h3 class="font-bold text-xl">Legal Assistant</h3>
+                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">Nguyen & Associates</p>
+                        <p class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-2">October, 2023 – December, 2023</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-white">
+                            <li>• Communicated with medical providers to request reductions and balance confirmations.</li>
+                            <li>• Managed lien follow-ups and subrogation letters for health insurance carriers to streamline claims processes.</li>
+                            <li>• Supported scheduling attorney meetings with clients and performed disbursement tasks.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 6 -->
+                    <div class="mb-12 pl-12 relative" data-animation="slide-in-right">
+                        <div class="absolute left-0 top-1 z-20 flex items-center justify-center bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full" style="left: calc(1rem - 1rem);">
+                            <div class="w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div>
+                        </div>
+                        <h3 class="font-bold text-xl">Coder</h3>
+                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">Educational Networks, Inc.</p>
+                        <p class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-2">July, 2021 – October, 2021</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-white">
+                            <li>• Collaborated with a team of 5 to maintain and improve the key features of the existing school websites.</li>
+                            <li>• Performed inspections, ran tests, and reported deficiencies to supervisors.</li>
+                            <li>• Optimized responsive applications work across browsers and devices at maximum speed.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 5 -->
+                    <div class="mb-12 pl-12 relative" data-animation="slide-in-right">
+                        <div class="absolute left-0 top-1 z-20 flex items-center justify-center bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full" style="left: calc(1rem - 1rem);">
+                            <div class="w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div>
+                        </div>
+                        <h3 class="font-bold text-xl">Web Developer</h3>
+                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">University of Southern California</p>
+                        <p class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-2">August, 2019 – January, 2020</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-white">
+                            <li>• Followed design specifications to code, test, debug, install, document, and maintain the software applications.</li>
+                            <li>• Ensured accessibility and supported repair actions for improved website functionality.</li>
+                            <li>• Built, wrote automated tests, and maintained daily user features using front-end and back-end technologies.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="mb-12 pl-12 relative" data-animation="slide-in-right">
+                        <div class="absolute left-0 top-1 z-20 flex items-center justify-center bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full" style="left: calc(1rem - 1rem);">
+                            <div class="w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div>
+                        </div>
+                        <h3 class="font-bold text-xl">Software Engineer</h3>
+                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">FaceIt 501C. Nonprofit</p>
+                        <p class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-2">December, 2019 – June, 2021</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-white">
+                            <li>• Designed and implemented a new nonprofit website as well as various promotional/marketing materials.</li>
+                            <li>• Developed database-driven web interfaces for rapid, real-time information sharing.</li>
+                            <li>• Oversaw donor interactions, managed the site, and trained team members on best practices in the new platform.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="mb-12 pl-12 relative" data-animation="slide-in-right">
+                        <div class="absolute left-0 top-1 z-20 flex items-center justify-center bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full" style="left: calc(1rem - 1rem);">
+                            <div class="w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div>
+                        </div>
+                        <h3 class="font-bold text-xl">Marketing Research Assistant</h3>
+                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">Blacksheep Inc.</p>
+                        <p class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-2">August, 2018 – August, 2019</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-white">
+                            <li>• Researched competitors, and design trends to recommend strategies for maintaining a competitive edge.</li>
+                            <li>• Analyzed housing practices and data to advise on designs, pricing, and attractions.</li>
+                            <li>• Built a client base by surveying and interviewing over 100 students from diverse groups.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="mb-12 pl-12 relative" data-animation="slide-in-right">
+                        <div class="absolute left-0 top-1 z-20 flex items-center justify-center bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full" style="left: calc(1rem - 1rem);">
+                            <div class="w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div>
+                        </div>
+                        <h3 class="font-bold text-xl">Bachelor of Arts: Philosophy</h3>
+                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">University of Southern California</p>
+                        <p class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-2">August, 2017 – May, 2021</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-white">
+                            <li>• Recipient, Army ROTC Scholarship</li>
+                            <li>• Recipient, Governor Guinn Millennium Scholarship</li>
+                            <li>• Recipient, Las Vegas Emblem Club #114 Scholarship</li>
+                            <li>• Recipient, Durango Trailblazer '93 Scholarship</li>
+                            <li>• Recipient, ‘Personal Best’ Scholarship</li>
+                            <li>• Recipient, NV Energy Powerful Partnership Scholarship</li>
+                            <li>• Recipient, Cox and Asian Community Development Council Scholarship</li>
+                            <li>• Recipient, Ralph & Betty Engelstad Scholarship</li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 1 -->
+                    <div class="mb-12 pl-12 relative" data-animation="slide-in-right">
+                        <div class="absolute left-0 top-1 z-20 flex items-center justify-center bg-cream-50 dark:bg-navy-900 w-8 h-8 rounded-full" style="left: calc(1rem - 1rem);">
+                            <div class="w-[18px] h-[18px] bg-white dark:bg-navy-800 rounded-full border-4 border-gold-500"></div>
+                        </div>
+                        <h3 class="font-bold text-xl">Student Leaders Intern</h3>
+                        <p class="text-sm font-medium text-gold-600 dark:text-gold-400">Bank of America</p>
+                        <p class="text-xs font-mono text-gray-500 dark:text-gray-400 mb-2">May, 2017 – August, 2017</p>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-white">
+                            <li>• Managed paper and electronic filing systems, recorded info., updated paperwork, and maintained documents.</li>
+                            <li>• Implemented various administrative duties and financial services and aided the directors with other projects.</li>
+                            <li>• Presented in financial policy meetings to discuss pros and cons of a new policy and suggest improvements.</li>
+                        </ul>
+                    </div>
+
                 </div>
-                
             </div>
         </section>
 
-        
         <!-- Projects Section -->
         <section id="projects" class="py-20">
             <div class="text-center mb-12">
-                <h2 data-animation="reveal-text" class="reveal-text text-3xl md:text-4xl font-bold text-navy-900 dark:text-white"><span class="text-content">Featured Projects</span></h2>
+                <h2 data-animation="reveal-text" class="reveal-text text-3xl md:text-4xl font-bold"><span class="text-content">Featured Projects</span></h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
@@ -304,87 +290,96 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front shadow-lg dark:shadow-2xl" style="background-image: url('https://placehold.co/600x400/0D1B2A/D4AF37?text=Project+1'); background-size: cover; background-position: center;">
                             <div class="absolute inset-0 bg-black/40 flex items-end p-4">
-                                <h3 class="text-2xl font-bold text-white">E-commerce Platform</h3>
+                                <h3 class="text-2xl font-bold text-white"> Kwin Non-Profit</h3>
                             </div>
                         </div>
-                        <div class="flip-card-back bg-white dark:bg-navy-800 p-6 flex flex-col justify-center shadow-lg dark:shadow-2xl">
+                        <div class="flip-card-back bg-white dark:bg-navy-800 p-6 flex flex-col shadow-lg dark:shadow-2xl">
                              <h4 class="text-lg font-bold text-navy-900 dark:text-white">Description</h4>
-                             <p class="mt-2 text-gray-600 dark:text-gray-400">A full-stack e-commerce site built with a modern, performant tech stack for a seamless user experience.</p>
+                             <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">A full-stack non-profit site built with a modern, performant tech stack for a seamless user experience.</p>
                              <div class="mt-4">
                                 <h5 class="font-bold text-navy-900 dark:text-white">Tech Stack:</h5>
                                 <div class="flex flex-wrap gap-2 mt-2">
-                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">Next.js</span>
-                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">Stripe</span>
-                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">Tailwind CSS</span>
+                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">HTML</span>
+                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">CSS</span>
+                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">Javascript</span>
                                 </div>
                              </div>
+                             <a href="#" class="mt-auto self-end bg-gold-500 hover:bg-gold-600 text-white font-bold py-2 px-4 rounded-lg transition-transform transform hover:scale-105 text-sm">
+                                View Project &rarr;
+                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Project 2 -->
                 <div data-animation="fade-in-up" data-animation-delay="200" class="flip-card">
                      <div class="flip-card-inner">
                         <div class="flip-card-front shadow-lg dark:shadow-2xl" style="background-image: url('https://placehold.co/600x400/0D1B2A/D4AF37?text=Project+2'); background-size: cover; background-position: center;">
                             <div class="absolute inset-0 bg-black/40 flex items-end p-4">
-                                <h3 class="text-2xl font-bold text-white">Data Visualization Dashboard</h3>
+                                <h3 class="text-2xl font-bold text-white">Lyceum of Philosophy</h3>
                             </div>
                         </div>
-                        <div class="flip-card-back bg-white dark:bg-navy-800 p-6 flex flex-col justify-center shadow-lg dark:shadow-2xl">
+                        <div class="flip-card-back bg-white dark:bg-navy-800 p-6 flex flex-col shadow-lg dark:shadow-2xl">
                              <h4 class="text-lg font-bold text-navy-900 dark:text-white">Description</h4>
-                             <p class="mt-2 text-gray-600 dark:text-gray-400">An interactive dashboard for visualizing complex data sets using D3.js and React.</p>
+                             <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">A full-stack Youtube Channel site built with a modern, performant tech stack with React for a seamless user experience.</p>
                              <div class="mt-4">
                                 <h5 class="font-bold text-navy-900 dark:text-white">Tech Stack:</h5>
                                 <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">HTML</span>
+                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">CSS</span>
+                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">Javascript</span>
                                     <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">React</span>
-                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">D3.js</span>
-                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">SCSS</span>
                                 </div>
                              </div>
+                             <a href="#" class="mt-auto self-end bg-gold-500 hover:bg-gold-600 text-white font-bold py-2 px-4 rounded-lg transition-transform transform hover:scale-105 text-sm">
+                                View Project &rarr;
+                             </a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Project 3 -->
                 <div data-animation="fade-in-up" data-animation-delay="400" class="flip-card">
                      <div class="flip-card-inner">
                         <div class="flip-card-front shadow-lg dark:shadow-2xl" style="background-image: url('https://placehold.co/600x400/0D1B2A/D4AF37?text=Project+3'); background-size: cover; background-position: center;">
                             <div class="absolute inset-0 bg-black/40 flex items-end p-4">
-                                <h3 class="text-2xl font-bold text-white">Task Management App</h3>
+                                <h3 class="text-2xl font-bold text-white">Learn Burmese App</h3>
                             </div>
                         </div>
-                        <div class="flip-card-back bg-white dark:bg-navy-800 p-6 flex flex-col justify-center shadow-lg dark:shadow-2xl">
+                        <div class="flip-card-back bg-white dark:bg-navy-800 p-6 flex flex-col shadow-lg dark:shadow-2xl">
                              <h4 class="text-lg font-bold text-navy-900 dark:text-white">Description</h4>
-                             <p class="mt-2 text-gray-600 dark:text-gray-400">A collaborative task management tool built with Vue.js and Firebase for real-time updates.</p>
+                             <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">A language learning tool built with Swift and Firebase for real-time updates.</p>
                              <div class="mt-4">
                                 <h5 class="font-bold text-navy-900 dark:text-white">Tech Stack:</h5>
                                 <div class="flex flex-wrap gap-2 mt-2">
-                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">Vue.js</span>
-                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">Firebase</span>
-                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">Vite</span>
+                                    <span class="text-xs font-semibold bg-gold-400/20 text-gold-600 dark:text-gold-400 py-1 px-3 rounded-full">Swift</span>
                                 </div>
                              </div>
+                             <a href="#" class="mt-auto self-end bg-gold-500 hover:bg-gold-600 text-white font-bold py-2 px-4 rounded-lg transition-transform transform hover:scale-105 text-sm">
+                                View Project &rarr;
+                             </a>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </section>
 
-        
         <!-- Contact Section -->
         <section id="contact" class="py-20">
              <div class="bg-white dark:bg-navy-800 rounded-2xl shadow-2xl p-8 md:p-12 max-w-4xl mx-auto">
                 <div class="text-center">
-                    <h2 data-animation="reveal-text" class="reveal-text text-3xl md:text-4xl font-bold text-navy-900 dark:text-white"><span class="text-content">Contact Me</span></h2>
+                    <h2 data-animation="reveal-text" class="reveal-text text-3xl md:text-4xl font-bold"><span class="text-content">Contact Me</span></h2>
                 </div>
-                <p data-animation="fade-in-up" data-animation-delay="200" class="text-center text-gray-600 dark:text-gray-400 mt-8 mb-12 max-w-2xl mx-auto">
+                <p data-animation="fade-in-up" data-animation-delay="200" class="text-center text-gray-600 dark:text-white mt-8 mb-12 max-w-2xl mx-auto">
                     Have a project in mind or just want to say hi? My inbox is always open. Let's build something amazing together.
                 </p>
                 <form data-animation="fade-in-up" data-animation-delay="300" class="max-w-xl mx-auto">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <input type="text" placeholder="Your Name" class="bg-cream-100 dark:bg-navy-700 border border-gray-300 dark:border-gray-600 rounded-lg py-3 px-4 text-navy-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 transition-colors">
                         <input type="email" placeholder="Your Email" class="bg-cream-100 dark:bg-navy-700 border border-gray-300 dark:border-gray-600 rounded-lg py-3 px-4 text-navy-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 transition-colors">
+                    </div>
+                    <div class="mb-6">
+                         <input type="text" placeholder="Title" class="w-full bg-cream-100 dark:bg-navy-700 border border-gray-300 dark:border-gray-600 rounded-lg py-3 px-4 text-navy-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 transition-colors">
                     </div>
                     <textarea placeholder="Your message..." rows="5" class="w-full bg-cream-100 dark:bg-navy-700 border border-gray-300 dark:border-gray-600 rounded-lg py-3 px-4 text-navy-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500 transition-colors mb-6"></textarea>
                     <div class="text-center">
@@ -395,21 +390,21 @@
                 </form>
             </div>
         </section>
+
     </main>
 
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-gray-900 relative z-10">
-        <div class="container mx-auto px-6 py-8 text-center text-gray-500 dark:text-gray-400">
-            <p>&copy; 2025 Jane Doe. All Rights Reserved.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <a href="#" class="social-icon text-gray-400">GitHub</a>
-                <a href="#" class="social-icon text-gray-400">LinkedIn</a>
+    <footer class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm relative z-10">
+        <div class="container mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+            <p class="mb-2 sm:mb-0">&copy; 2025 Aung Oke Oo. All Rights Reserved.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="social-icon hover:text-gold-500 dark:hover:text-gold-400 transition-colors">GitHub</a>
+                <a href="#" class="social-icon hover:text-gold-500 dark:hover:text-gold-400 transition-colors">LinkedIn</a>
             </div>
         </div>
     </footer>
 
-    
     <!-- Back to Top Button -->
     <a href="#about" id="back-to-top" class="bg-gold-500 hover:bg-gold-600 text-white p-3 rounded-full shadow-lg z-50">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -418,101 +413,7 @@
     </a>
 
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-            const htmlElement = document.documentElement;
-
-            const applyTheme = (theme) => {
-                if (theme === 'dark') {
-                    htmlElement.classList.add('dark');
-                    themeToggleLightIcon.classList.remove('hidden');
-                    themeToggleDarkIcon.classList.add('hidden');
-                } else {
-                    htmlElement.classList.remove('dark');
-                    themeToggleDarkIcon.classList.remove('hidden');
-                    themeToggleLightIcon.classList.add('hidden');
-                }
-            };
-            
-            const savedTheme = localStorage.getItem('color-theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-            applyTheme(initialTheme);
-
-            themeToggleBtn.addEventListener('click', function() {
-                const isDark = htmlElement.classList.contains('dark');
-                const newTheme = isDark ? 'light' : 'dark';
-                localStorage.setItem('color-theme', newTheme);
-                applyTheme(newTheme);
-            });
-
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            document.querySelectorAll('#mobile-menu a').forEach(anchor => {
-                anchor.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-            });
-
-            const animatedElements = document.querySelectorAll('[data-animation]');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const delay = parseInt(entry.target.getAttribute('data-animation-delay') || '0');
-                        setTimeout(() => {
-                           entry.target.classList.add('visible');
-                        }, delay);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.2 });
-            animatedElements.forEach(el => {
-                const animationClass = el.getAttribute('data-animation');
-                if(animationClass) el.classList.add(animationClass);
-                observer.observe(el);
-            });
-
-            const backToTopButton = document.getElementById('back-to-top');
-            const heroImage = document.getElementById('hero-image');
-            window.addEventListener('scroll', () => {
-                const scrollPosition = window.scrollY;
-                if (backToTopButton) {
-                    backToTopButton.classList.toggle('visible', scrollPosition > 300);
-                }
-                if (heroImage && scrollPosition < window.innerHeight) {
-                    heroImage.style.transform = `translateY(${scrollPosition * 0.3}px) scale(1)`;
-                }
-            });
-
-            // Custom Tailwind Colors
-            tailwind.config = {
-              theme: {
-                extend: {
-                  colors: {
-                    navy: {
-                        '700': '#1B263B',
-                        '800': '#121e2e',
-                        '900': '#0D1B2A',
-                    },
-                    gold: {
-                        '400': '#D4AF37',
-                        '500': '#B8860B',
-                        '600': '#A1720A',
-                    },
-                    cream: {
-                        '50': '#F5F5F5',
-                        '100': '#F5F5DC',
-                    }
-                  }
-                }
-              }
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
